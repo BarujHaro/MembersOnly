@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<%- include('partials/header') %>
+<main class="container auth-form">
+    <h1>Sign up</h1>
+    <% if (error) { %>
+        <p class="error"><%= error %></p>
+    <% } %> 
+
+    <form action="/user/sign-up" method="POST">
+        <div class="label-control">
+            <label>First name</label>
+            <input type="text" name="first_name" required>
+        </div>
+
+                <div class="label-control">
+            <label>Last name</label>
+            <input type="text" name="last_name" required>
+        </div>
+
+
+        <div class="label-control">
+            <label>Email</label>
+            <input type="email" name="gmail" required>
+        </div>
+
+        <div class="label-control">
+            <label>Password</label>
+            <input type="password" name="pass" required>
+        </div>
+
+        <div class="label-control">
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" required>
+        </div>
+
+        <button type="submit">Create account</button>
+    </form>
+
+</main>  
+</body>
+</html>

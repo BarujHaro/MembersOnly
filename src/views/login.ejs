@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<%- include('partials/header') %>
+<main class="container auth-form">
+    <h1>Login</h1>
+    <% if (error) { %>
+        <p class="error"><%= error %></p>
+    <% } %>
+
+    <form action="/user/login" method="POST">
+        <div class="label-control">
+            <label>Email</label>
+            <input type="email" name="gmail" required>
+        </div>
+
+        <div class="label-control">
+            <label>Password</label>
+            <input type="password" name="pass" required>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+</main>  
+</body>
+</html>

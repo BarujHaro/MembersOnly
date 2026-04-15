@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main class="container">
+
+    <div class="message-container" onclick="">
+            
+                <div class="message-card">
+                    <strong  class="message-title"><%= message.title %></strong> 
+                    <span class="message-text"><%= message.text %></span>
+
+                    <% if (user && user.membership_status) { %>
+                        <span class="message-author">
+                            <%= message.gmail %>
+                        </span>
+                        <% } else { %>
+                        <span class="message-author">Anonymous</span>
+                    <% } %>
+
+
+                    <% if (user && user.admin) { %>
+                        <div>
+                            <form action="/message/<%= message.id %>/delete" method="POST">
+                            <button class="delete-icon"></button>
+                            </form>
+                        </div>
+                    <% } %>
+                    </div>
+        
+
+   
+
+    </div>
+
+    </main>
+</body>
+</html>

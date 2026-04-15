@@ -1,0 +1,20 @@
+
+
+:root{
+    --bg: #fff4E2;
+    --light: #FDE4BC;
+    --bar: #D3AB80;
+    --dark: #896d65;
+    --darker: #472825;
+
+    --danger: #b04a4a;
+    --danger-lighter: #f8d7da;
+    --danger-light: #e5a5ab;
+}
+
+html, body, #root {
+    background-color: #c2c2c2;
+    margin: 0;
+    padding: 0;
+    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+}
