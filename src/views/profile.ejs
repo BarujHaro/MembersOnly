@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main class="container">
+
+  <% if (user) { %>
+    <div class="profile-title">
+      <h1><%= user.first_name %> <%= user.last_name %></h1>
+      <p><strong>Email:</strong> <%= user.gmail %></p>
+      <p>
+        <strong>Status:</strong>
+        <%= user.member ? "Member" : "Regular user" %>
+      </p>
+    </div>
+
+    <h2>Your messages</h2>
+
+    <div class="messages-container">
+      <% if (messages.length === 0) { %>
+        <p>You haven't posted any messages yet.</p>
+      <% } %>
+
+      <% messages.forEach(message => { %>
+        <div class="message-card">
+          <strong class="message-title"><%= message.title %></strong>
+          <span class="message-text"><%= message.text %></span>
+          <span class="message-author"><%= message.gmail %></span>
+        </div>
+      <% }) %>
+    </div>
+
+  <% } %>
+    </main>
+</body>
+</html>

@@ -29,7 +29,7 @@ const User = {
 
     setMembership: async (userId) => {
         await db.query(
-            `UPDATE users SET membership_status = true WHERE id = $1`,
+            `UPDATE users SET member = true WHERE id = $1`,
             [userId]
         );
     },

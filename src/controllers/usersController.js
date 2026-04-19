@@ -1,4 +1,5 @@
 const User = require('../models/users');
+const Message = require('../models/messages');
 const {validationResult, matchedData} = require("express-validator");
 const validateUser = require('./validators/userValidator');
 const loginValidator = require('./validators/loginValidator');
@@ -141,6 +142,65 @@ exports.signUpPost = async (req, res) => {
 
 };
 
+exports.joinGet = async (req, res) => {
+    try{
+    //console.log("USER:", req.user);
+        res.render("join", {
+            title: "Join",
+            secret: "OdinPro()",
+            error: null
+        });
+
+    }catch(error){
+        res.status(500).render("Join", {
+            title: "Join",
+            secret: "OdinPro()",
+            error: "Error: loading form"
+        });
+    }
+
+};
+
+exports.joinPost = async (req, res) => {
+    try{
+
+
+    if (!req.user) {
+      return res.status(401).render("Join", {
+        title: "Join",
+        secret: "OdinPro()",
+        error: "You must be logged in"
+      });
+    }
+
+    const { code } = req.body;
+
+
+    if(code!=="OdinPro()" && code!=="4dm1nR3q()"){
+        return res.render("Join", {
+            title: "Join",
+            secret: "OdinPro()",
+            error: "Error: Invalid code"
+        });
+    }
+ 
+    await User.setMembership(req.user.id);
+
+    if(code==="4dm1nR3q()"){
+        await User.setAdmin(req.user.id);
+    }
+
+    res.redirect("/");
+
+    }catch(err){
+        console.log(err);
+        res.status(500).render("Join", {
+            title: "Join",
+            secret: "OdinPro()",
+            error: "Error: Join failed"
+        });
+    }
+};
 
 exports.logout = (req, res, next) => {
   req.logout(err => {
@@ -154,3 +214,42 @@ exports.logout = (req, res, next) => {
     });
   });
 };
+
+
+
+exports.ProfileGet = async (req, res) => {
+    try{
+        
+        if (!req.user) {
+        return res.status(401).render("profile", {
+                title: "Profile",
+                user: null,
+                messages: [],
+                error: "Error: You need to login first"
+        });
+        }
+
+        console.log("PROFILE USER:", req.user);
+        const messages = await Message.getAllFromIdUser(req.user.id);
+        console.log("USER MESSAGES:", messages);
+
+        res.render("profile", {
+        title: "Profile",
+        user: req.user,
+        messages,
+        error: null
+        });
+
+    }catch(error){
+        console.error("PROFILE ERROR:", error);
+
+        res.status(500).render("profile", {
+            title: "Profile",
+            user: null,
+            messages: [],
+            error: "Error: Loading messages failed"
+        });
+    }
+
+};
+

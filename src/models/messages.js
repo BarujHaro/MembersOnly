@@ -3,7 +3,7 @@ const db = require('./database');
 const Message = {
     create: async (messageData) => {
         const {
-            title,
+            title, 
             text,
             user_id
         } = messageData;
@@ -31,6 +31,24 @@ const Message = {
             JOIN users ON messages.user_id = users.id
             ORDER BY messages.id DESC
             `
+        );
+        return result.rows;
+    },
+
+    getAllFromIdUser: async (userId) => {
+        const result = await db.query(
+            `
+            SELECT
+                messages.id,
+                messages.title,
+                messages.text,
+                users.gmail
+            FROM messages
+            JOIN users ON messages.user_id = users.id
+            WHERE messages.user_id = $1
+            ORDER BY messages.id DESC
+            `,
+            [userId]
         );
         return result.rows;
     },

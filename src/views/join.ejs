@@ -5,11 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/styles.css">
+
 </head>
 <body>
+<%- include('partials/header') %>
+<main class="container">
+    <h1>Login</h1>
+    <% if (error) { %>
+        <p class="error"><%= error %></p>
+    <% } %>
 
+    <form action="/user/join" method="POST">
+        <div class="label-control">
+            <label>Write the code (Use the console)</label>
+            <input type="text" name="code" required>
+        </div>
+        <button type="submit">Join</button>
+    </form>
 
-    
+</main>  
+
+    <script>
+    console.log("Hint: Run the function <%= secret %>");
+    </script>
     
 </body>
 </html>

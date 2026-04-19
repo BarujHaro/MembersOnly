@@ -16,7 +16,7 @@
                     <strong  class="message-title"><%= message.title %></strong> 
                     <span class="message-text"><%= message.text %></span>
 
-                    <% if (user && user.membership_status) { %>
+                    <% if (user && user.member) { %>
                         <span class="message-author">
                             <%= message.gmail %>
                         </span>
@@ -24,11 +24,11 @@
                         <span class="message-author">Anonymous</span>
                     <% } %>
 
-
+ 
                     <% if (user && user.admin) { %>
                         <div>
                             <form action="/message/<%= message.id %>/delete" method="POST">
-                            <button class="delete-icon"></button>
+                            <button class="delete-icon" type="submit" onclick="return confirm('¿Delete this message?')"></button>
                             </form>
                         </div>
                     <% } %>

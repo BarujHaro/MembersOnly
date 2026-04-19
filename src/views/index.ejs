@@ -22,7 +22,7 @@
                     <strong  class="message-title"><%= message.title %></strong> 
                     <span class="message-text"><%= message.text %></span>
 
-                    <% if (user && user.membership_status) { %>
+                    <% if (user && user.member) { %>
                         <span class="message-author">
                             <%= message.gmail %>
                         </span>

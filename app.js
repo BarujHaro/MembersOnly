@@ -6,12 +6,14 @@ const session = require("express-session");
 const passport = require("passport");
 require("./src/config/passport");
 const messagesRouter = require("./src/routes/messageRoutes");
-const usersRouter = require("./src/routes/UserRoutes");
+const usersRouter = require("./src/routes/userRoutes");
 
 app.use(session({ secret: process.env.SESSION_KEY, resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.urlencoded({ extended: false }));
+
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set("view engine", "ejs");  

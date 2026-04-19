@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+<%- include('partials/header') %>
+<main class="container">
+    <h1>Login</h1>
+    <% if (error) { %>
+        <p class="error"><%= error %></p>
+    <% } %>
+
+    <form action="/new-message" method="POST">
+        <div class="label-control">
+            <label>Title</label>
+            <input type="text" name="title" required>
+        </div>
+
+        <div class="label-control">
+            <label>Text</label>
+            <input type="text" name="text" required>
+        </div>
+
+        <button type="submit">Send</button>
+    </form>
+
+</main>  
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+.plus-icon{
+  font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+
+.plus-icon:hover {
+    transform: scale(1.15);
+    transition: all 0.3s ease;
+}
+
+.plus-icon:hover::before {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(11%) saturate(2592%) hue-rotate(317deg) brightness(98%) contrast(87%);
+}
+
+.plus-icon::before{
+    content: "";
+    display: inline-block;
+    filter: brightness(0) saturate(100%) invert(50%) sepia(4%) saturate(2653%) hue-rotate(327deg) brightness(98%) contrast(78%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.plus-icon::before {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url('/img/plus-icon.png');
+}
