@@ -24,11 +24,11 @@ An exclusive clubhouse where your members can write anonymous posts. Inside the 
 
 ## Screenshots
 -Home page from a Non-logged user perspective
-![HomeNormal](./public/screenshots/HomeNormal.png)
+![HomeNormal](./public/screenshots/HomeNormal.PNG)
 -Sign-up page
-![SignUp](./public/screenshots/SignUp.png)
+![SignUp](./public/screenshots/SignUp.PNG)
 -Home page from a logged user perspective
-![HomeUser](./public/screenshots/HomeUser.png)
+![HomeUser](./public/screenshots/HomeUser.PNG)
 
 
 ## Database Setup
