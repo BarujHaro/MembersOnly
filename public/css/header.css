@@ -1,0 +1,59 @@
+.header {
+    padding: 10px 35px;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--darker);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+   
+}
+
+
+.nav-links {
+    text-decoration: none;
+    display: flex; 
+    font-weight: bold;
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.nav-links:hover {
+    color: var(--darker);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    font-weight: bold;
+  text-decoration: none;
+  color: var(--darker);
+  padding: 8px 16px;
+  border: 1px solid var(--darker);
+  border-radius: 6px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-login:hover {
+    background-color: var(--darker);
+    color: var(--bg);
+}
+.btn-signup {
+    font-weight: bold;
+  text-decoration: none;
+  background-color: var(--darker);
+  color: var(--bg);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-signup:hover {
+    background-color: var(--text);
+    color: var(--bg);
+}

@@ -12,22 +12,23 @@
 
     <div class="message-container" onclick="">
             
-                <div class="message-card">
-                    <strong  class="message-title"><%= message.title %></strong> 
-                    <span class="message-text"><%= message.text %></span>
+                <div class="message-card-single">
+                    <strong  class="message-title-single"><%= message.title %></strong> 
+                    
 
                     <% if (user && user.member) { %>
-                        <span class="message-author">
+                        <span class="message-author-single">
                             <%= message.gmail %>
                         </span>
                         <% } else { %>
-                        <span class="message-author">Anonymous</span>
+                        <span class="message-author-single">Anonymous</span>
                     <% } %>
 
- 
+                    <span class="message-text-single"><%= message.text %></span>
+
                     <% if (user && user.admin) { %>
                         <div>
-                            <form action="/message/<%= message.id %>/delete" method="POST">
+                            <form action="/message/<%= message.id %>/delete" method="POST" class="delete-form">
                             <button class="delete-icon" type="submit" onclick="return confirm('¿Delete this message?')"></button>
                             </form>
                         </div>

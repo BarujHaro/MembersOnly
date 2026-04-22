@@ -1,3 +1,12 @@
+.icon-div{
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
 .plus-icon{
   font-weight: 500;
     display: inline-flex;
@@ -18,13 +27,13 @@
 }
 
 .plus-icon:hover::before {
-    filter: brightness(0) saturate(100%) invert(13%) sepia(11%) saturate(2592%) hue-rotate(317deg) brightness(98%) contrast(87%);
+    filter: brightness(0) saturate(100%) invert(21%) sepia(5%) saturate(5026%) hue-rotate(339deg) brightness(95%) contrast(78%);
 }
 
 .plus-icon::before{
     content: "";
     display: inline-block;
-    filter: brightness(0) saturate(100%) invert(50%) sepia(4%) saturate(2653%) hue-rotate(327deg) brightness(98%) contrast(78%);
+    filter: brightness(0) saturate(100%) invert(15%) sepia(14%) saturate(749%) hue-rotate(337deg) brightness(89%) contrast(91%);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -34,4 +43,34 @@
     width: 2.5rem;
     height: 2.5rem;
     background-image: url('/img/plus-icon.png');
+}
+
+.delete-icon {
+    all: unset;                  
+    cursor: pointer;
+}
+
+
+.delete-icon:hover {
+    transform: scale(1.15);
+    transition: all 0.3s ease;
+}
+
+.delete-icon:hover::before {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(51%) saturate(634%) hue-rotate(314deg) brightness(108%) contrast(93%);
+}
+
+.delete-icon::before{
+    content: "";
+    display: inline-block;
+    filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(5992%) hue-rotate(331deg) brightness(85%) contrast(84%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.delete-icon::before {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url('/img/delete.png');
 }

@@ -10,17 +10,17 @@
     <%- include('partials/header') %>
     <main class="container">
     <% if (user) { %>
-        <div><a href="/new-message" class="plus-icon"></a></div>
+        <div class="icon-div"><a href="/new-message" class="plus-icon"></a></div>
     <% } %>
 
+ 
 
-
-    <div class="messages-container">
+    <div class="grid-messages">
         <% messages.forEach(message => { %>
             <a href="/message/<%= message.id %>" class="message-link">
                 <div class="message-card">
                     <strong  class="message-title"><%= message.title %></strong> 
-                    <span class="message-text"><%= message.text %></span>
+                    
 
                     <% if (user && user.member) { %>
                         <span class="message-author">
@@ -29,6 +29,8 @@
                         <% } else { %>
                         <span class="message-author">Anonymous</span>
                     <% } %>
+
+                    <span class="message-text"><%= message.text %></span>
 
                     </div>
             </a>

@@ -1,20 +1,20 @@
 <header class="header">
   <nav class="nav">
-    <a href="/">Messages</a>
+    <a href="/" class="nav-links">Messages</a>
 
     <% if (user) { %>
       
       <% if (!user.membership_status) { %>
-        <a href="/user/join">Join</a>
+        <a href="/user/join" class="nav-links">Join</a>
       <% } %>
 
-      <a href="/user/profile">Profile</a>
-      <a href="/user/logout">Logout</a>
+      <a href="/user/profile" class="nav-links">Profile</a>
+      <a href="/user/logout" class="nav-links btn-signup">Logout</a>
 
     <% } else { %>
 
-      <a href="/user/login">Login</a>
-      <a href="/user/sign-up">Sign-up</a>
+      <a href="/user/login" class="nav-links btn-login">Login</a>
+      <a href="/user/sign-up" class="nav-links btn-signup">Sign-up</a>
 
     <% } %>
   </nav>

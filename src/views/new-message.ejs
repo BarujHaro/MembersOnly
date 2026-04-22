@@ -6,16 +6,16 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/styles.css">
 
-</head>
+</head> 
 <body>
 <%- include('partials/header') %>
-<main class="container">
-    <h1>Login</h1>
+<main class="container auth-form">
+    <h1>New message</h1>
     <% if (error) { %>
         <p class="error"><%= error %></p>
     <% } %>
 
-    <form action="/new-message" method="POST">
+    <form action="/new-message" method="POST" class="forms">
         <div class="label-control">
             <label>Title</label>
             <input type="text" name="title" required>

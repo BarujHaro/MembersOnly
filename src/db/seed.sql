@@ -11,10 +11,9 @@ const pool = new Pool({
 });
 
 const seedData = async () => {
-    const client = await pool.connect();
+  const client = await pool.connect();
 
-    try{
-
+  try {
         await client.query('BEGIN');
         await client.query('DELETE FROM users');
         await client.query('DELETE FROM messages');
@@ -25,12 +24,12 @@ const seedData = async () => {
         const pass2 = await bcrypt.hash(process.env.USER2_PASS, 10);
         const pass3 = await bcrypt.hash(process.env.USER3_PASS, 10);
 
+
         const users = [
             ['Fer','Har','bar@gmail.com', pass2, true, true],
             ['Judi','Rod','judi@gmail.com', pass1, true, true],
             ['Ang', 'Gal', 'Ang@gmail.com', pass3, true, false]
         ];
-
 
         for(const user of users){
             await client.query(
@@ -42,14 +41,13 @@ const seedData = async () => {
             );
         }
 
-
-
         const messages = [
             ['Welcome to the Club!', "I'm so excited to be part of this community. Looking forward to meeting everyone!", 1],
             ['Thinking of You', "Every moment we spend together becomes my favorite memory. I'm so lucky to have you.", 2],
             ['A Quiet Goodbye', "It's hard to let go when your heart isn't ready to say goodbye. The silence feels heavy today.", 2],
             ['Best Day Ever!', "I just got the news and I couldn't be happier! Hard work finally paid off and I'm celebrating!", 3]
         ];
+
 
         for (const message of messages){
             await client.query(
@@ -61,20 +59,19 @@ const seedData = async () => {
             );
         }
 
-        await client.query('COMMIT');
-        console.log('Dummy Data inserted')
-    }catch(error){
-        await client.query('ROLLBACK');
-        console.error('Error insertando datos:', error);
-    }finally{
-        client.release();
-        await pool.end();
-    }
-
+    await client.query('COMMIT');
+    console.log('Seed completed');
+  } catch (err) {
+    await client.query('ROLLBACK');
+    console.error(err);
+  } finally {
+    client.release();
+    await pool.end();
+  }
 };
 
-if (require.main === module){
-    seedData();
+if (require.main === module) {
+  seedData();
 }
 
-module.exports = {seedData};
+module.exports = { seedData };

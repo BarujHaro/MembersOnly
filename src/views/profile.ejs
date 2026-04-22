@@ -8,8 +8,8 @@
 </head>
 <body>
     <%- include('partials/header') %>
-    <main class="container">
-
+    <main class="container-profile">
+ 
   <% if (user) { %>
     <div class="profile-title">
       <h1><%= user.first_name %> <%= user.last_name %></h1>
@@ -20,19 +20,23 @@
       </p>
     </div>
 
-    <h2>Your messages</h2>
+    
 
-    <div class="messages-container">
+    <div class="messages-container-profile">
+      <h2>Your messages</h2>
       <% if (messages.length === 0) { %>
         <p>You haven't posted any messages yet.</p>
       <% } %>
 
       <% messages.forEach(message => { %>
+        <a href="/message/<%= message.id %>" class="message-link">
         <div class="message-card">
           <strong class="message-title"><%= message.title %></strong>
-          <span class="message-text"><%= message.text %></span>
           <span class="message-author"><%= message.gmail %></span>
+          <span class="message-text"><%= message.text %></span>
+          
         </div>
+        </a>
       <% }) %>
     </div>
 

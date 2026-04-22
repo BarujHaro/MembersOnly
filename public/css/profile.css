@@ -1,0 +1,60 @@
+.container-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    color: var(--darker);
+    padding: 2rem;
+}
+
+.profile-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.profile-title h1{
+    color: var(--text);
+    font-size: 2.7rem;
+}
+
+.profile-title p{
+    font-size: 1.3rem;
+}
+
+.messages-container-profile{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.messages-container-profile h2{
+    color: var(--text);
+    font-size: 1.7rem;
+}
+
+.messages-container-profile p{
+    font-size: 1.3rem;
+}
+
+ 
+.message-card:nth-child(3n + 1) {
+    background-color: var(--color1);
+}
+
+.message-card:nth-child(3n + 2) {
+    background-color: var(--color2);
+}
+
+.message-card:nth-child(3n + 3) {
+    background-color: var(--color3);
+}
+
+.message-card:nth-child(3n + 4) {
+    background-color: var(--color4);
+}

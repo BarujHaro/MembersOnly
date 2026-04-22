@@ -9,13 +9,13 @@
 </head>
 <body>
 <%- include('partials/header') %>
-<main class="container">
-    <h1>Login</h1>
+<main class="container auth-form">
+    <h1>Join</h1>
     <% if (error) { %>
         <p class="error"><%= error %></p>
     <% } %>
 
-    <form action="/user/join" method="POST">
+    <form action="/user/join" method="POST" class="forms">
         <div class="label-control">
             <label>Write the code (Use the console)</label>
             <input type="text" name="code" required>

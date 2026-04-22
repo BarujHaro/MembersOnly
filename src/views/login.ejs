@@ -6,7 +6,7 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
+<body> 
 <%- include('partials/header') %>
 <main class="container auth-form">
     <h1>Login</h1>
@@ -14,7 +14,7 @@
         <p class="error"><%= error %></p>
     <% } %>
 
-    <form action="/user/login" method="POST">
+    <form action="/user/login" method="POST" class="forms">
         <div class="label-control">
             <label>Email</label>
             <input type="email" name="gmail" required>

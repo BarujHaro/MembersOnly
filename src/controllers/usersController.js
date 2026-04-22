@@ -229,10 +229,9 @@ exports.ProfileGet = async (req, res) => {
         });
         }
 
-        console.log("PROFILE USER:", req.user);
+        
         const messages = await Message.getAllFromIdUser(req.user.id);
-        console.log("USER MESSAGES:", messages);
-
+       
         res.render("profile", {
         title: "Profile",
         user: req.user,

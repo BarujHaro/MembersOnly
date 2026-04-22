@@ -1,0 +1,144 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.grid-messages{
+    padding: 1.3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 1.3rem;
+}
+ 
+.message-link{
+    text-decoration: none;
+}
+
+.message-card{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background-color: var(--color1);
+    border-radius: 0.8rem;
+    padding: 17px 22px;
+    gap: 0.5rem;
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+    height: 100%;
+}
+
+.message-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.message-title{
+    color: var(--darker);
+    font-weight: bold;
+    font-size: 1.3rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-author{
+    color: var(--darker);
+    font-size: 1.1rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-text{
+    color: var(--text);
+    font-size: 1.1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;   
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.message-link:nth-child(3n + 1) .message-card {
+    background-color: var(--color1);
+}
+
+.message-link:nth-child(3n + 2) .message-card {
+    background-color: var(--color2);
+}
+
+.message-link:nth-child(3n + 3) .message-card {
+    background-color: var(--color3);
+}
+
+.message-link:nth-child(3n + 4) .message-card {
+    background-color: var(--color4);
+}
+
+
+.message-card-single{
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background-color: var(--color1);
+    border-radius: 1rem;
+    padding: 26px 30px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    min-height: 100%;
+    gap: 0.8rem;
+    min-width: 90%;
+}
+
+.message-card-single:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.message-title-single{
+    color: var(--darker);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.message-author-single{
+    color: var(--darker);
+    font-size: 1.2rem;
+}
+
+.message-text-single{
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.delete-form {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+.message-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    align-content: center;
+}
+
+@media screen and (min-width: 1024px){
+    .grid-messages{
+        padding: 1.3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 1fr;
+        gap: 1.3rem;
+    }
+
+}
