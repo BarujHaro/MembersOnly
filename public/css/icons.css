@@ -74,3 +74,65 @@
     height: 2.5rem;
     background-image: url('/img/delete.png');
 }
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.pagination-link {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: var(--darker);
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;                
+    vertical-align: middle;
+
+}
+.pagination-link.prev {
+    padding-bottom: 3px;
+    padding-right: 2px;
+}
+
+.pagination-link.next {
+    padding-bottom: 3px;
+    padding-left: 2px;
+}
+
+
+.pagination-link:hover {
+    background-color: var(--dark);
+    transform: scale(1.15);
+    transition: all 0.3s ease;
+}
+
+.pagination-info {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .pagination {
+        gap: 10px;
+    }
+
+}

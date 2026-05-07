@@ -39,6 +39,22 @@
 
     </div>
 
+    <% if (pagination && pagination.totalPages > 1) { %>
+        <div class="pagination">
+            <% if (pagination.hasPrevPage) { %>
+                <a href="?page=<%= pagination.prevPage %>" class="pagination-link prev">&lt;</a>
+            <% } %>
+            
+            <span class="pagination-info">
+                 <%= pagination.currentPage %> of <%= pagination.totalPages %>
+            </span>
+            
+            <% if (pagination.hasNextPage) { %>
+                <a href="?page=<%= pagination.nextPage %>" class="pagination-link next">&gt;</a>
+            <% } %>
+        </div>
+    <% } %>
+
     </main>
 </body>
 </html>

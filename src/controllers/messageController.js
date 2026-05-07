@@ -3,6 +3,7 @@ const User = require('../models/users');
 const {validationResult, matchedData} = require("express-validator");
 const validateMessage = require('./validators/messageValidator');
 
+/*
 exports.messagesListGet = async (req, res) => {
     try{
         const messages = await Message.getAll();
@@ -12,7 +13,7 @@ exports.messagesListGet = async (req, res) => {
             user: req.user || null,
             error: null
         });
-
+ 
     }catch(error){
         res.status(500).render("index", {
             title: "Members Only",
@@ -21,6 +22,48 @@ exports.messagesListGet = async (req, res) => {
         });
     }
 
+};
+*/
+
+exports.messagesListGet = async (req, res) => {
+    try{
+        // Obtener número de página de los query params (default: 1)
+        const page = parseInt(req.query.page) || 1;
+        const messagesPerPage = 8; // Cambia a 6 si prefieres 6 mensajes
+        const offset = (page - 1) * messagesPerPage;
+        
+        // Obtener mensajes paginados y el total
+        const [messages, totalMessages] = await Promise.all([
+            Message.getAll(messagesPerPage, offset),
+            Message.getTotalCount()
+        ]);
+        
+        // Calcular número total de páginas
+        const totalPages = Math.ceil(totalMessages / messagesPerPage);
+        
+        res.render("index", {
+            title: "Members Only",
+            messages,
+            user: req.user || null,
+            error: null,
+            pagination: {
+                currentPage: page,
+                totalPages: totalPages,
+                hasNextPage: page < totalPages,
+                hasPrevPage: page > 1,
+                prevPage: page - 1,
+                nextPage: page + 1
+            }
+        });
+
+    }catch(error){
+        res.status(500).render("index", {
+            title: "Members Only",
+            user: req.user || null,
+            error: "Error: loading messages is not possible",
+            pagination: null
+        });
+    }
 };
 
 
@@ -93,7 +136,6 @@ exports.newMessagePost = async (req, res) => {
         }
         
 
-        console.log(req.body);
         const {title, text} = req.body;
         const user_id = req.user.id;
 
@@ -102,7 +144,7 @@ exports.newMessagePost = async (req, res) => {
         res.redirect("/");
 
     }catch(error){
-        console.log(error);
+       
         res.render('new-message', {
             title: 'New message',
             error: 'Error: failed storing message'
